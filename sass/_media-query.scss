@@ -10,7 +10,7 @@
 
 @media only screen and (max-width: 600px) {
   html {
-    font-size: 45% !important;
+    font-size: 47% !important;
   }
   nav {
     flex-direction: column;
@@ -60,6 +60,12 @@
   }
   .btn--sort {
     font-size: 1rem !important;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .movements-box {
+    height: 330px;
   }
 }
 
