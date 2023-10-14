@@ -9,6 +9,9 @@
 }
 
 @media only screen and (max-width: 600px) {
+  html {
+    font-size: 45% !important;
+  }
   nav {
     flex-direction: column;
   }
@@ -69,9 +72,6 @@
   }
   .balance__value {
     font-size: 2rem !important;
-  }
-  .btn--sort {
-    display: none;
   }
   .form--loan-box {
     width: 85%;
