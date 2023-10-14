@@ -1,0 +1,79 @@
+@media only screen and (max-width: 795px) and (min-width: 605px) {
+  html {
+    font-size: 47.5% !important;
+  }
+  .movements-box,
+  .operations-box {
+    height: 395px !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  nav {
+    flex-direction: column;
+  }
+  .welcome {
+    font-size: 2.7rem;
+  }
+  .logo {
+    margin: 4rem auto;
+    height: 12rem;
+  }
+  .login__input {
+    width: 42% !important;
+    margin-right: 2rem !important;
+  }
+  .balance__value {
+    font-size: 2.5rem !important;
+  }
+  .main-app {
+    flex-direction: column !important;
+  }
+  .operations-box {
+    height: auto !important;
+    margin-top: 3rem !important;
+    width: 100% !important;
+  }
+  .movements-box {
+    width: 100% !important;
+  }
+  .summary__value {
+    font-size: 1.5rem !important;
+  }
+  .last {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+}
+
+@media only screen and (max-width: 505px) {
+  .summary {
+    &__value {
+      font-size: 1.2rem !important;
+    }
+    &__label {
+      font-size: 1rem !important;
+    }
+  }
+  .btn--sort {
+    font-size: 1rem !important;
+  }
+}
+
+@media only screen and (max-width: 385px) {
+  .welcome {
+    font-size: 2.5rem;
+  }
+  .logo {
+    height: 10rem;
+  }
+  .balance__value {
+    font-size: 2rem !important;
+  }
+  .btn--sort {
+    display: none;
+  }
+  .form--loan-box {
+    width: 85%;
+  }
+}

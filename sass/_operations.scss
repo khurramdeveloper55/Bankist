@@ -1,0 +1,123 @@
+/* OPERATIONS */
+.operation {
+  border-radius: 1rem;
+  padding: 3rem 4rem;
+  color: #333;
+
+  &--transfer {
+    background-image: linear-gradient(to top left, #ffb003, #ffcb03);
+    margin-bottom: 3rem;
+  }
+
+  &--loan {
+    background-image: linear-gradient(to top left, #39b385, #9be15d);
+    margin-bottom: 3rem;
+  }
+
+  &--close {
+    background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+  }
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.form {
+  &--transfer {
+    &-input {
+      display: flex;
+      flex-direction: row;
+
+      &-to,
+      &-amount {
+        margin-right: 2rem;
+        text-align: center;
+      }
+
+      input {
+        margin-right: 1rem;
+      }
+    }
+
+    &-label {
+      label {
+        margin-right: 5.5rem;
+      }
+    }
+  }
+
+  &--loan {
+    &-box {
+      display: flex;
+      flex-direction: row;
+      width: 60%;
+    }
+
+    &-input {
+      margin-right: 2rem;
+      text-align: center;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.4);
+    font-family: inherit;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #333;
+    padding: 0.3rem 1rem;
+    border-radius: 0.7rem;
+    transition: all 0.3s;
+    margin-bottom: 0.5rem;
+
+    &:focus {
+      outline: none;
+      background-color: rgba(255, 255, 255, 0.6);
+    }
+  }
+
+  &--close {
+    &-input {
+      display: flex;
+      flex-direction: row;
+    }
+
+    &-user,
+    &-pin {
+      margin-right: 2rem;
+      text-align: center;
+    }
+  }
+
+  &__label {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  &__btn {
+    border: none;
+    border-radius: 0.7rem;
+    font-size: 1.8rem;
+    padding: 0 1rem;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:focus {
+      outline: none;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    &--transfer,
+    &--loan,
+    &--close {
+      height: 29px;
+    }
+  }
+}

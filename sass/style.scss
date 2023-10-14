@@ -1,0 +1,60 @@
+/* IMPORTS */
+@import "imports";
+
+/* COMMON CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #444;
+  background-color: #f3f3f3;
+  height: 100vh;
+  padding: 2rem;
+}
+
+/* MAIN */
+.app {
+  position: relative;
+  max-width: 100rem;
+  margin: 4rem auto;
+  opacity: 0;
+  transition: all 1s;
+}
+
+.main-app {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 80%;
+}
+
+.movements-box {
+  width: 55%;
+  height: 520px;
+}
+
+.operations-box {
+  width: 43%;
+  height: 500px;
+}
+
+/* TIMER */
+.logout-timer {
+  padding: 0 0.3rem;
+  margin-top: 1.9rem;
+  text-align: right;
+  font-size: 1.25rem;
+}
+
+.timer {
+  font-weight: 600;
+}
