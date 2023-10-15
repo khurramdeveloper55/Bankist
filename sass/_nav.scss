@@ -6,6 +6,11 @@ nav {
   padding: 0 2rem;
 }
 
+.welcome-box {
+  display: flex;
+  position: relative;
+}
+
 .welcome {
   font-size: 1.9rem;
   font-weight: 500;
@@ -61,4 +66,12 @@ nav {
 .btn--sort:focus {
   outline: none;
   color: #777;
+}
+
+.help {
+  width: 20px;
+  height: 20px;
+  margin-top: 0.4rem;
+  margin-left: 2rem;
+  cursor: pointer;
 }

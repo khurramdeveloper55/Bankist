@@ -3,7 +3,7 @@
 
 // DATA
 const account1 = {
-  owner: "Jonas Schmedtmann",
+  owner: "Khurram Shehzad",
   movements: [200, 455.23, -306.5, 25000, -642.21, -133.9, 79.97, 1300],
   interestRate: 1.2, // IN PERCENTS
   pin: 1111,
@@ -18,12 +18,12 @@ const account1 = {
     "2023-09-25T23:36:17.929Z",
     "2023-09-27T10:51:36.790Z",
   ],
-  currency: "EUR",
-  locale: "pt-PT",
+  currency: "PKR",
+  locale: "ur-PK",
 };
 
 const account2 = {
-  owner: "Jessica Davis",
+  owner: "Umair Shehzad",
   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
   interestRate: 1.5, // IN PERCENTS
   pin: 2222,
@@ -55,12 +55,15 @@ const labelTimer = document.querySelector(".timer");
 
 const containerApp = document.querySelector(".app");
 const containerMovements = document.querySelector(".movements");
+const toolTip = document.querySelector(".tools");
 
 const btnLogin = document.querySelector(".login__btn");
 const btnTransfer = document.querySelector(".form__btn--transfer");
 const btnLoan = document.querySelector(".form__btn--loan");
 const btnClose = document.querySelector(".form__btn--close");
 const btnSort = document.querySelector(".btn--sort");
+const btnHelpWelcome = document.querySelector(".help-welcome");
+const btnHelpTransfer = document.querySelector(".help-transfer");
 
 const inputLoginUsername = document.querySelector(".login__input--user");
 const inputLoginPin = document.querySelector(".login__input--pin");
@@ -72,6 +75,7 @@ const inputClosePin = document.querySelector(".form__input--pin");
 
 ////////// FUNCTIONS //////////
 
+// MOVEMENTS DATE FORMAT
 const formatMovementDate = function (date, locale) {
   const calcDaysPassed = (date1, date2) =>
     Math.round(Math.abs((date2 - date1) / (1000 * 60 * 60 * 24)));
@@ -82,6 +86,7 @@ const formatMovementDate = function (date, locale) {
   return new Intl.DateTimeFormat(locale).format(date);
 };
 
+// CURRENCY FORMAT
 const formatCur = function (value, locale, currency) {
   return new Intl.NumberFormat(locale, {
     style: "currency",
@@ -89,6 +94,7 @@ const formatCur = function (value, locale, currency) {
   }).format(value);
 };
 
+// MOVEMENTS
 const displayMovements = function (acc, sort = false) {
   containerMovements.innerHTML = "";
 
@@ -115,6 +121,7 @@ const displayMovements = function (acc, sort = false) {
   });
 };
 
+//////////////////////// USERNAMES ///////////////////////
 const createUsernames = function (accs) {
   accs.forEach(function (acc) {
     acc.username = acc.owner
@@ -126,11 +133,13 @@ const createUsernames = function (accs) {
 };
 createUsernames(accounts);
 
+/////////////////////// BALANCE ////////////////////
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
   labelBalance.textContent = formatCur(acc.balance, acc.locale, acc.currency);
 };
 
+/////////////////////// SUMMARY /////////////////////
 const calcDisplaySummary = function (acc) {
   const incomes = acc.movements
     .filter((mov) => mov > 0)
@@ -154,6 +163,7 @@ const updateUI = function (acc) {
   calcDisplaySummary(acc);
 };
 
+///////////////////// LOGOUT FUNCTIONALITY ///////////////////////
 const startLogOutTimer = function () {
   const tick = function () {
     const min = String(Math.trunc(time / 60)).padStart(2, 0);
@@ -161,18 +171,19 @@ const startLogOutTimer = function () {
     labelTimer.textContent = `${min}:${sec}`;
     if (time === 0) {
       clearInterval(timer);
-      labelWelcome.textContent = "Log in to get started";
+      labelWelcome.textContent = "Click help to get started";
       containerApp.style.opacity = 0;
     }
     time--;
   };
-  let time = 3000;
+  let time = 300;
   const timer = setInterval(tick, 1000);
   return timer;
 };
 
 let currentAccount, timer;
 
+//////////////////////// LOGIN BUTTON //////////////////////
 btnLogin.addEventListener("click", function (e) {
   e.preventDefault();
   currentAccount = accounts.find(
@@ -205,6 +216,7 @@ btnLogin.addEventListener("click", function (e) {
   }
 });
 
+/////////////////////// TRANSFER BUTTON /////////////////////////
 btnTransfer.addEventListener("click", function (e) {
   e.preventDefault();
   const amount = +inputTransferAmount.value;
@@ -228,6 +240,7 @@ btnTransfer.addEventListener("click", function (e) {
   }
 });
 
+////////////////////////// LOAN BUTTON /////////////////////////
 btnLoan.addEventListener("click", function (e) {
   e.preventDefault();
   const amount = +inputLoanAmount.value;
@@ -246,6 +259,7 @@ btnLoan.addEventListener("click", function (e) {
   }
 });
 
+///////////////////////// CLOSE BUTTON //////////////////////////
 btnClose.addEventListener("click", function (e) {
   e.preventDefault();
   if (
@@ -256,15 +270,31 @@ btnClose.addEventListener("click", function (e) {
       (acc) => acc.username === inputCloseUsername.value
     );
     accounts.splice(index, 1);
-    labelWelcome.textContent = "Log in to get started";
+    labelWelcome.textContent = "Click help to get started";
     containerApp.style.opacity = 0;
   }
   inputCloseUsername.value = inputClosePin.value = "";
 });
 
+////////////////////////// SORTING ///////////////////////
 let sorted = false;
 btnSort.addEventListener("click", function (e) {
   e.preventDefault();
   displayMovements(currentAccount, sorted);
   sorted = !sorted;
+});
+
+//////////////////// WELCOME HELP ICON ///////////////////////////////
+btnHelpWelcome.addEventListener("click", function () {
+  alert(
+    "Account 1: \nuser = ks    PIN = 1111\nAccount 2:\nuser = us    PIN = 2222"
+  );
+});
+
+//////////////////////// TOOLTIP /////////////////////////////
+btnHelpTransfer.addEventListener("mouseenter", function () {
+  toolTip.style.opacity = 100;
+});
+btnHelpTransfer.addEventListener("mouseleave", function () {
+  toolTip.style.opacity = 0;
 });

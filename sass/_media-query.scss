@@ -2,6 +2,11 @@
   html {
     font-size: 47.5% !important;
   }
+
+  .help {
+    margin-top: 0;
+  }
+
   .movements-box,
   .operations-box {
     height: 395px !important;
@@ -16,41 +21,72 @@
       }
     }
   }
+
+  .tools {
+    width: 225px;
+    top: -9.6rem;
+    right: -1.4rem;
+  }
 }
 
 @media only screen and (max-width: 600px) {
   html {
     font-size: 47% !important;
   }
+
   nav {
     flex-direction: column;
   }
+
   .welcome {
     font-size: 2.7rem;
   }
+
+  .help {
+    &-welcome {
+      margin-top: 0.5rem;
+    }
+
+    &-transfer {
+      margin-top: -0.1rem;
+    }
+  }
+
+  .tools {
+    width: 225px;
+    top: -9.6rem;
+    right: -1.5rem;
+  }
+
   .logo {
     margin: 4rem auto;
     height: 12rem;
   }
+
   .login__input {
     width: 42% !important;
     margin-right: 2rem !important;
   }
+
   .balance__value {
     font-size: 2.5rem !important;
   }
+
   .main-app {
     flex-direction: column !important;
   }
+
   .operations-box {
     height: auto !important;
     margin-top: 3rem !important;
     width: 100% !important;
   }
+
   .movements-box {
     width: 100% !important;
     height: 330px !important;
   }
+
   .form {
     &__btn {
       &--transfer,
@@ -60,9 +96,11 @@
       }
     }
   }
+
   .summary__value {
     font-size: 1.5rem !important;
   }
+
   .last {
     flex-direction: column !important;
     align-items: center !important;
@@ -74,10 +112,12 @@
     &__value {
       font-size: 1.2rem !important;
     }
+
     &__label {
       font-size: 1rem !important;
     }
   }
+
   .btn--sort {
     font-size: 1rem !important;
   }
@@ -87,12 +127,15 @@
   .welcome {
     font-size: 2.5rem;
   }
+
   .logo {
     height: 10rem;
   }
+
   .balance__value {
     font-size: 2rem !important;
   }
+
   .form--loan-box {
     width: 85%;
   }
